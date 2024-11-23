@@ -64,7 +64,14 @@ def bus():
             cur.close()
             conn.close()
             
-            return "Bus booked successfully!"
+            booking_details = {
+                'departure': departure,
+                'destination': destination,
+                'date': date,
+                'seating_type': seating_type
+            }
+            
+            return render_template('bus_success.html', booking_details=booking_details)
         
         except mysql.connector.Error as e:
             conn.rollback()
@@ -89,7 +96,16 @@ def train():
             conn.commit()
             cur.close()
             conn.close()
-            return "train booked successfully!"
+            
+            booking_details = {
+                'departure': departure,
+                'destination': destination,
+                'date': date,
+                'class_type': class_type
+            }
+            
+            return render_template('train_success.html', booking_details=booking_details)
+        
             
         except mysql.connector.Error as e:
             conn.rollback()
@@ -108,17 +124,27 @@ def book_flight():
         destination = request.form['destination']
         date = request.form['date']
         passengers = request.form['passengers']
+        seating_type = request.form['seating_type']
 
         # Connecting to MySQL
         conn = get_db_connection()
         cur = conn.cursor()
         try:
-            cur.execute("INSERT INTO flights (departure, destination, date, passengers) VALUES (%s, %s, %s, %s)",
-                        (departure, destination, date, passengers))
+            cur.execute("INSERT INTO flights (departure, destination, date, passengers, seating_type) VALUES (%s, %s, %s, %s, %s)",
+                        (departure, destination, date, passengers, seating_type))
             conn.commit()
             cur.close()
             conn.close()
-            return "Flight booked successfully!"
+            
+            booking_details = {
+                'departure': departure,
+                'destination': destination,
+                'date': date,
+                'passengers': passengers,
+                'seating_type': seating_type
+            }
+            
+            return render_template('flight_success.html', booking_details=booking_details)
         
         except mysql.connector.Error as e:
             conn.rollback()

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Booking - Home</title>
+    <title>Flight Booking Success - Travel Booking</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
@@ -50,13 +50,31 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                
             </ul>
         </div>
     </nav>
-    <div class="container text-center">
-        <h1>Welcome to Travel Booking</h1>
-        <p>Your one-stop solution for all your travel needs. Book buses, trains, and flights with ease.</p>
-        <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}" role="button">Sign Up</a>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Flight Booking Success</h2>
+                        <p class="text-center">Your flight booking was successful! Here are your booking details:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Departure:</strong> {{ booking_details.departure }}</li>
+                            <li class="list-group-item"><strong>Destination:</strong> {{ booking_details.destination }}</li>
+                            <li class="list-group-item"><strong>Date:</strong> {{ booking_details.date }}</li>
+                            <li class="list-group-item"><strong>No of Passengers:</strong> {{ booking_details.passengers }}</li>
+                            <li class="list-group-item"><strong>Seating Type:</strong> {{ booking_details.seating_type }}</li>
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

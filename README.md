@@ -1,6 +1,3 @@
-Here's an attractive and well-structured README file for your **travel_booking** project:
-
----
 
 # 🚀 Flask Travel Booking System
 
@@ -141,6 +138,3 @@ Want to make this project even better? Contributions are welcome! Fork the repos
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
----
-
-Let me know if you'd like any changes or additions! 😊

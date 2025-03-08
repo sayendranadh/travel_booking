@@ -1,0 +1,48 @@
+1. Users Table
+This table stores user information such as username, email, and password:
+
+sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+2. Bus Bookings Table
+This table records bus bookings with departure, destination, and seating details:
+
+sql
+CREATE TABLE bus_bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    departure VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    seating_type VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+3. Train Bookings Table
+This table holds train bookings, including class type information:
+
+sql
+CREATE TABLE train_bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    departure VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    class_type VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+4. Flights Table
+This table stores flight bookings, including passenger details:
+
+sql
+CREATE TABLE flights (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    departure VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    passengers INT NOT NULL,
+    seating_type VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
